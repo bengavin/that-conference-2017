@@ -1,0 +1,79 @@
+Step	No.	Color	Part no.	Part name
+Model: Supports for the car frame (Base Frame Supports.ldr)
+1	1	VEX_Medium_Gray	228-2500-011-v2.dat	VEX Beam  1 x 12 -Vgr2-
+1	8	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+Model: Vex Racer Model (Vex Racer.ldr)
+1	2	VEX_Black	Base Frame Supports.ldr	Supports for the car frame
+3	1	VEX_Medium_Gray	228-2500-040.dat	VEX Plate  4 x  4 -Vgr2-
+3	1	VEX_Medium_Gray	228-2500-045.dat	VEX Plate  4 x 12 -Vgr2-
+5	1	VEX_Medium_Gray	Seat.ldr	Driver Seat Assembly
+8	1	VEX_Medium_Gray	Steering Wheel.ldr	Steering Wheel Assembly
+9	1	VEX_Medium_Gray	Car Tail Assembly.ldr	Car Tail and Rear supports
+10	1	VEX_Medium_Gray	Nose Assembly.ldr	Car Front End Assembly
+14	1	VEX_Medium_Gray	Front Axel Assembly.ldr	Assembly for front axel
+15	1	VEX_Medium_Gray	Rear Axel Assembly.ldr	Assembly for rear racer axel
+Model: Driver Seat Assembly (Seat.ldr)
+1	1	VEX_Medium_Gray	228-2500-145.dat	VEX Beam  3 x  2 Bent 90 -Vgr2-
+1	1	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+1	2	VEX_Blue	228-2500-062.dat	VEX Pin  2 M 2x2 -Vgr3-
+2	1	VEX_Medium_Gray	228-2500-145.dat	VEX Beam  3 x  2 Bent 90 -Vgr2-
+3	2	VEX_Black	228-2500-128-v2.dat	VEX Connector  2 Wide Base  2 x  1 Tab -Vgr4-
+Model: Steering Wheel Assembly (Steering Wheel.ldr)
+1	1	Metal	228-2500-117.dat	VEX Axle  2 M Metal -Vgr1-
+1	1	VEX_Black	228-2500-132-v2.dat	VEX Connector  2 Wide Base  1 x  2 Tab -Vgr4-
+1	1	VEX_Black	228-2500-168.dat	VEX Rubber Axle Bush -Vgr1-
+1	1	VEX_Red	228-2500-232.dat	VEX Sprocket Wheel  8 Tooth -Vgr6-
+Model: Car Front End Assembly (Nose Assembly.ldr)
+1	1	VEX_Medium_Gray	228-2500-147.dat	VEX Beam  3 x  3 Bent 30 -Vgr2-
+1	1	VEX_Blue	228-2500-061.dat	VEX Pin  1.5 M 1x2 -Vgr3-
+1	4	VEX_Blue	228-2500-062.dat	VEX Pin  2 M 2x2 -Vgr3-
+4	1	VEX_Medium_Gray	228-2500-147.dat	VEX Beam  3 x  3 Bent 30 -Vgr2-
+4	1	VEX_Blue	228-2500-061.dat	VEX Pin  1.5 M 1x2 -Vgr3-
+5	2	VEX_Medium_Gray	228-2500-003-v2.dat	VEX Beam  1 x  4 -Vgr2-
+5	2	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+6	2	VEX_Medium_Gray	228-2500-007-v2.dat	VEX Beam  1 x  8 -Vgr2-
+6	4	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+7	2	VEX_Medium_Gray	228-2500-147.dat	VEX Beam  3 x  3 Bent 30 -Vgr2-
+7	4	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+8	4	VEX_Black	228-2500-128-v2.dat	VEX Connector  2 Wide Base  2 x  1 Tab -Vgr4-
+Model: Car Tail and Rear supports (Car Tail Assembly.ldr)
+1	1	VEX_Medium_Gray	228-2500-023.dat	VEX Beam  2 x  8 -Vgr2-
+1	4	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+2	1	VEX_Medium_Gray	228-2500-021.dat	VEX Beam  2 x  6 -Vgr2-
+2	4	VEX_Black	228-2500-127-v2.dat	VEX Connector Corner  1 x  1 x  1 -Vgr4-
+5	1	VEX_Medium_Gray	228-2500-149.dat	VEX Beam  3 x  3 Bent 60 -Vgr2-
+5	1	VEX_Black	228-2500-127-v2.dat	VEX Connector Corner  1 x  1 x  1 -Vgr4-
+8	1	VEX_Medium_Gray	228-2500-149.dat	VEX Beam  3 x  3 Bent 60 -Vgr2-
+8	1	VEX_Black	228-2500-127-v2.dat	VEX Connector Corner  1 x  1 x  1 -Vgr4-
+10	2	VEX_Black	228-2500-130-v2.dat	VEX Connector  1 Wide Base  1 x  1.5 Tab -Vgr4-
+10	1	VEX_Medium_Gray	228-2500-040.dat	VEX Plate  4 x  4 -Vgr2-
+12	2	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+13	2	VEX_Medium_Gray	228-2500-151.dat	VEX Beam  3 x  2.1 x  3 Double Bent 45 -Vgr2-
+16	2	VEX_Black	228-2500-127-v2.dat	VEX Connector Corner  1 x  1 x  1 -Vgr4-
+17	2	VEX_Black	228-2500-127-v2.dat	VEX Connector Corner  1 x  1 x  1 -Vgr4-
+20	2	VEX_Red	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+Model: Assembly for front axel (Front Axel Assembly.ldr)
+1	1	Metal	228-2500-124.dat	VEX Axle  8 M Metal -Vgr1-
+4	1	VEX_Black	228-2500-114.dat	VEX Axle Spacer  0.25 M -Vgr1-
+4	1	VEX_Black	228-2500-133-v2.dat	VEX Connector  2 Wide Base  1 x  1.5 Tab -Vgr4-
+4	1	VEX_Red	228-2500-164c01.dat	VEX Pulley 20 mm Diameter with 100 mm Travel Tire -Vgr5-
+4	2	VEX_Black	228-2500-168.dat	VEX Rubber Axle Bush -Vgr1-
+8	1	VEX_Black	228-2500-114.dat	VEX Axle Spacer  0.25 M -Vgr1-
+8	1	VEX_Black	228-2500-133-v2.dat	VEX Connector  2 Wide Base  1 x  1.5 Tab -Vgr4-
+8	1	VEX_Red	228-2500-164c01.dat	VEX Pulley 20 mm Diameter with 100 mm Travel Tire -Vgr5-
+8	1	VEX_Black	228-2500-168.dat	VEX Rubber Axle Bush -Vgr1-
+Model: Assembly for rear racer axel (Rear Axel Assembly.ldr)
+3	1	Metal	228-2500-124.dat	VEX Axle  8 M Metal -Vgr1-
+6	1	VEX_Black	228-2500-114.dat	VEX Axle Spacer  0.25 M -Vgr1-
+6	1	VEX_Black	228-2500-225.dat	VEX Beam  2 x  2 with Axle Twist Lock -Vgr9-
+6	1	VEX_Black	228-2500-226.dat	VEX Beam  2 x  2 with Axle Twist Lock Nut -Vgr9-
+6	1	VEX_Black	228-2500-133-v2.dat	VEX Connector  2 Wide Base  1 x  1.5 Tab -Vgr4-
+6	2	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+6	1	VEX_Black	228-2500-168.dat	VEX Rubber Axle Bush -Vgr1-
+6	1	VEX_Medium_Gray	228-2500-208c02.dat	VEX Wheel 44 x 18.8 with 200 mm Travel Tire -Vgr5-
+10	1	VEX_Black	228-2500-114.dat	VEX Axle Spacer  0.25 M -Vgr1-
+10	1	VEX_Black	228-2500-225.dat	VEX Beam  2 x  2 with Axle Twist Lock -Vgr9-
+10	1	VEX_Black	228-2500-226.dat	VEX Beam  2 x  2 with Axle Twist Lock Nut -Vgr9-
+10	1	VEX_Black	228-2500-133-v2.dat	VEX Connector  2 Wide Base  1 x  1.5 Tab -Vgr4-
+10	2	VEX_Blue	228-2500-060.dat	VEX Pin  1 M 1x1 -Vgr3-
+10	1	VEX_Medium_Gray	228-2500-208c02.dat	VEX Wheel 44 x 18.8 with 200 mm Travel Tire -Vgr5-

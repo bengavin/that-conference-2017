@@ -1,0 +1,11 @@
+0 240 length straight arrow
+0 Name: Long Straight Arrow.ldr
+0 Author: SnapCAD
+0 Unofficial Model
+0 ROTATION CENTER 0 0 0 1 "Custom" 
+0 ROTATION CONFIG 0 0
+3 17 -12 0 0 3 -5 0 -2 0 0
+3 17 -12 0 0 3 5 0 -2 0 0
+3 17 -2 0 0 0 -2 0 0 2 0
+4 17 0 -2 0 240 -2 0 240 2 0 0 2 0
+0

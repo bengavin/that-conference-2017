@@ -1,0 +1,11 @@
+0 Steering Wheel Assembly
+0 Name: Steering Wheel.ldr
+0 Author: SnapCAD
+0 Unofficial Model
+0 ROTATION CENTER 0 0 0 1 "Custom" 
+0 ROTATION CONFIG 0 0
+1 0 -16 32 0 1 0 0 0 1 0 0 0 1 228-2500-132-v2.dat
+1 4 -16 -16 -20 1 0 0 0 1 0 0 0 1 228-2500-232.dat
+1 0 -16 -16 20 1 0 0 0 1 0 0 0 1 228-2500-168.dat
+1 80 -16 -16 8 1 0 0 0 1 0 0 0 1 228-2500-117.dat
+0

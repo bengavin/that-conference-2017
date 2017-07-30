@@ -1,0 +1,17 @@
+0 Driver Seat Assembly
+0 Name: Seat.ldr
+0 Author: SnapCAD
+0 Unofficial Model
+0 ROTATION CENTER 0 0 0 1 "Custom" 
+0 ROTATION CONFIG 0 0
+0 STEP
+1 71 -80 16 16 0 -1 0 0 0 1 -1 0 0 228-2500-145.dat
+1 73 -80 -48 16 0 0 1 0 1 0 -1 0 0 228-2500-060.dat
+1 73 -80 16 16 0 0 1 0 1 0 -1 0 0 228-2500-062.dat
+1 73 -80 16 -16 0 0 1 0 1 0 -1 0 0 228-2500-062.dat
+0 STEP
+1 71 -64 16 16 0 -1 0 0 0 1 -1 0 0 228-2500-145.dat
+0 STEP
+1 0 -112 32 0 0 0 1 0 1 0 -1 0 0 228-2500-128-v2.dat
+1 0 -48 32 0 0 0 -1 0 1 0 1 0 0 228-2500-128-v2.dat
+0

@@ -1,0 +1,11 @@
+0 Straight Arrow Model
+0 Name: Straight Arrow.ldr
+0 Author: SnapCAD
+0 Unofficial Model
+0 ROTATION CENTER 0 0 0 1 "Custom" 
+0 ROTATION CONFIG 0 0
+3 35 -12 0 0 3 -5 0 -0.75 0 0
+3 35 -12 0 0 3 5 0 -0.75 0 0
+3 35 -0.75 0 0 0 -1 0 0 1 0
+4 35 0 -1 0 80 -1 0 80 1 0 0 1 0
+0
