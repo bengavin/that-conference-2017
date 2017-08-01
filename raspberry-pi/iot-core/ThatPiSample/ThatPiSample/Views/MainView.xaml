@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="ThatPiSample.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ThatPiSample.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:ThatPiSample.ViewModels"
+    mc:Ignorable="d" FontSize="32"
+    d:DataContext="{d:DesignInstance Type=vm:MainViewModel}">
+
+    <Page.DataContext>
+        <vm:MainViewModel />
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="LED Test:" HorizontalAlignment="Stretch" />
+            <Button x:Name="RedButton" Content="Red" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource RedColor}" Click="RedButton_Click" />
+            <Button x:Name="GreenButton" Content="Green" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource GreenColor}" />
+            <Button x:Name="BlueButton" Content="Blue" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource BlueColor}" />
+            <Button x:Name="WhiteButton" Content="White" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource WhiteColor}" />
+            <Button x:Name="OffButton" Content="Off" HorizontalAlignment="Stretch" Command="{Binding TurnLedOffCommand}" />
+
+            <TextBlock Text="Button Test:" Margin="0,20,0,0" />
+            <Button x:Name="PushButton" Content="Push Btn" HorizontalAlignment="Stretch" Command="{Binding PushButtonCommand}" />
+
+            <TextBlock Text="Beacon Test:" Margin="0,20,0,0" />
+            <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Stretch" Command="{Binding StartCommand}" />
+            <Button x:Name="StopButton" Content="Stop" HorizontalAlignment="Stretch" Command="{Binding StopCommand}" />
+            <TextBlock Text="Beacons in View:" Margin="0,10,0,0" />
+            <TextBlock TextWrapping="Wrap" Text="{Binding BeaconsInView}" />
+        </StackPanel>
+
+    </Grid>
+</Page>
