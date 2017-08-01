@@ -38,6 +38,8 @@ namespace ThatPiSample.Services
             _watcher = new BluetoothLEAdvertisementWatcher()
             {
                 ScanningMode = BluetoothLEScanningMode.Passive,
+                // EXPLORE: Are there other useful properties here you could set
+                //          to control how sensitive your device is?
             };
             _watcher.Received += Receive_Watcher_Notification;
             _watcher.Stopped += _watcher_Stopped;

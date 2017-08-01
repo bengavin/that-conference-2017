@@ -16,8 +16,8 @@ start with the 'Software Geek' path.
 ## Building the Hardware
 Take a moment to review the supplies you received.  You should have the following parts:
 
-* 1 - 220Ω Resistor [larger] (red, red, brown, gold)
-* 2 - 330Ω Resistors [smaller] (orange, orange, brown, gold)
+* 2 - 220Ω Resistors [larger] (red, red, brown, gold)
+* 1 - 330Ω Resistors [smaller] (orange, orange, brown, gold)
 * 1 - Push Button Switch
 * 1 - RGB Led
 * 6 - Male - Female Jumper Wires (various colors)
@@ -40,7 +40,7 @@ When you place the LED into the board, make sure the 'cutoff' corner is pointing
 ![LED on Breadboard](Sketches/Breadboard-lanes.png)
 
 ### Adding the Resistors
-This particular LED has an approximate ratio of 2/3/3 for R/G/B voltage that is available across the three LED diodes (think of this as the brightness of each color).  We're going to use the 220Ω and 330Ω resistors to compensate so each LED diode shines at about the same level.  Tie the 220Ω resistor to the Red leg (the left-most lane), and the two 330Ω resistors to the center two lanes by inserting one end of the resistor into the lowest hole in the lane, and jumping across the gap to the corresponding lane on the bottom of the breadboard.
+This particular LED has an approximate ratio of 2/3/3 for R/G/B voltage that is available across the three LED diodes (think of this as a level of brightness), however, the Green LED is perceived to be much brighter.  So we're going to use the 220Ω and 330Ω resistors to compensate so each LED diode shines at about the same level.  Tie a 220Ω resistor to the Red and Blue lanes (center and right), and the 330Ω resistor to the Green (left most) lane.  Insert one end of the resistor into the lowest hole in the lane, and jump across the gap to the corresponding lane on the bottom of the breadboard.
 
 ![Adding the resistors](Sketches/AddingResistors.png)
 
@@ -80,22 +80,20 @@ No IoT solution would be complete without a software component.  Whether that is
 
 The software does a few things:
 
-* It encodes the 'map' that represents the physical world into something the software can use
 * It utilizes the Bluetooth LE hardware of your Raspberry Pi to detect beacons
-* It indicates to the user (via the LED) how close the beacon of interest is
-* It accepts input from the user to register visiting a beacon (via the push button)
+* It indicates to the user (via the LED) which beacon(s) it can currently 'see'
+* It accepts input from the user to turn beacon scanning on and off (via the push button)
 
-As a software geek, you can choose how much control you want to take from the program.  You
-can decide to change how the software finds beacons, or how it translates the beacon signals
-into physical output for the user to see / hear.  By default, the software will do the following:
+As a software geek, you can choose how much control you want to take from the program.  You can decide to change how the software finds beacons, or how it translates the beacon signals into LED color(s).  By default, the software will do the following:
 
-* When started, the application loads the map and begins scanning for beacons
-* A beacon is selected (randomly) as the current target beacon
-* When a beacon is found, the LED blinks Blue if tracking against a non-target beacon, and Green if tracking against the target beacon
-* The LED blinks faster the closer you move to the target
-* When the Raspberry Pi is within capture distance of the beacon, the LED begins a rainbow light cycle
-* When the LED has 'gone rainbow', clicking the push button captures the current target and selects a new target from the map
-* Once 10 targets are captured, the LED shuts off, indicating your quest is complete, return to the check-in table for more info!
+* When started, the application turns off the LED and waits for the user to press the button
+* When the button is pushed, the software starts scanning for BTLE beacons that it knows about
+* When a beacon is found, it's color is integrated into the current LED color
+* The 'beacon' model is updated to include the detected signal strength of the beacon
+* The LED displays colors that the Raspberry Pi has 'seen' in the last 5 seconds
+* When the button is pressed again, the BTLE scanning stops
+
+The software also has a 'test' interface which can be seen via a connected monitor, or with the 'Windows IoT Remote Client'.  This can be used if you feel that the hardware isn't doing what you expect.
 
 ### Getting the Software
 Go to [The GitHub Repository](https://github.com/bengavin/that-conference-2017/) and click 'Open in Visual Studio'.  This will pull the code onto your local computer, and give you the opportunity to open the 'ThatPiSample' solution.
@@ -113,13 +111,11 @@ Now, from Visual Studio, open the 'ThatPiSample.sln' file, this will open the so
 
 * The 'Assets' folder contains images that are used by the application during runtime, these can be safely ignored, as we're not interested in what the application itself looks like right now.
 
-* The 'Model' folder contains classes that define the application's view of the world.  These classes likely won't need any changes.
+* The 'Models' folder contains classes that define the application's view of the world.  These classes likely won't need any changes.
 
 * The 'Services' folder contains the bulk of the program logic.  If you're going to make changes to the program, it's likely that they'll need to be made here.
 
   * The 'BeaconService' class handles keeping track of the beacons, unless you want to get way down in the weeds, you probably don't need to worry about much in here.
-
-  * The 'GameService' class handles the game loop, and gathering data from and sending control messages to other services in the application.
 
   * The 'LedService' class controls the LEDs, this is where you'll change what pin you plugged your LED hardware into (see the const(s) at the top of the file).
 
@@ -136,24 +132,29 @@ Open the 'MainViewModel' class.  Near the top of this class, you should find som
 For this lab, just uncomment (remove the '//'s) the beacons that you have with your kit.  Each line will look something like this:
 
 ```csharp
-   new Beacon("Pikachu", "01234.123", Colors.Yellow),
+   new Beacon("Pikachu", "01234-123", Colors.Red),
 ```
 
-Pick a color for each beacon that you have, then hit the Build -> Build Solution menu item to verify that your project builds successfully.
+Pick a color for each beacon that you have (Red, Green or Blue), then hit the Build -> Build Solution menu item to verify that your project builds successfully.
 
 ### Taking a Hardware Break
 If you're a 'Software Geek' and have not yet assembled your hardware, now is the time to do it.  Your code won't run without the Raspberry Pi, and it won't do anything interesting if you don't have the hardware hooked up to the Pi, so do that quick and stop back down here when you're ready.
 
 [Be a Hardware Geek](#hardware)
 
-### Making your Changes and Running the Code
-As you look through the code, there are various comments (indicated by '//' or '/* ... */') that talk about
-where changes can be made (or need to be made, depending on your hardware setup).  Once you've made sure
-you're talking to the right pins for the LED/Push Button, you're ready to 'deploy' your code to the
-Raspberry Pi.  Raise your hand and a lab counselor will stop over and help you with this step.  It involves
-hooking your Raspberry Pi up to a network wire and setting up Visual Studio to talk with it.
+### Running the Code
+Once you've made sure you're talking to the right pins for the LED/Push Button, you're ready to 'deploy' your code to the Raspberry Pi.  Raise your hand and a lab counselor will stop over and help you with this step.  It involves hooking your Raspberry Pi up to a network wire and setting up Visual Studio to talk with it.
 
-Once your code is running, go capture the beacon in the corner of the room to test that your setup is working
-properly.  Once that's working, you're off to the races, see you when you return!
+Once your code is running, hitting the push button should start the search for Pokemon, and bringing the different Pokemon 'into view' (out of the lined bag) should change the colors you see.
 
-Oh, and 'Good Luck'!
+Once you've had a chance to get things running, see if you can change something about how the program works, or take some time to explore the code to see how things work!
+
+For example:
+* What happens if you change the resistor positions?
+* What happens if you change resistor values altogether (find a lab counselor to get a variety of resistors to test)?
+* What happens if you start listening for all beacons instead of only the 3 you have?
+* How far away do you have to get before your Pi stops 'seeing' the beacon?
+* Does the distance change depending on what is between the beacon and the Pi?
+* Can you compensate in software to stop 'seeing' beacons that aren't close enough to the Pi?
+  * Hint: Look in the BeaconService for the '_watcher' and see what properties are there
+  
