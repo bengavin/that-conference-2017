@@ -16,11 +16,11 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
             <TextBlock Text="LED Test:" HorizontalAlignment="Stretch" />
-            <Button x:Name="RedButton" Content="Red" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource RedColor}" Click="RedButton_Click" />
-            <Button x:Name="GreenButton" Content="Green" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource GreenColor}" />
-            <Button x:Name="BlueButton" Content="Blue" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource BlueColor}" />
-            <Button x:Name="WhiteButton" Content="White" HorizontalAlignment="Stretch" Command="{Binding TurnLedOnCommand}" CommandParameter="{StaticResource WhiteColor}" />
-            <Button x:Name="OffButton" Content="Off" HorizontalAlignment="Stretch" Command="{Binding TurnLedOffCommand}" />
+            <Button x:Name="RedButton" Content="Red" HorizontalAlignment="Stretch" Command="{Binding TurnOnLedCommand}" CommandParameter="{StaticResource RedColor}" Click="RedButton_Click" />
+            <Button x:Name="GreenButton" Content="Green" HorizontalAlignment="Stretch" Command="{Binding TurnOnLedCommand}" CommandParameter="{StaticResource GreenColor}" />
+            <Button x:Name="BlueButton" Content="Blue" HorizontalAlignment="Stretch" Command="{Binding TurnOnLedCommand}" CommandParameter="{StaticResource BlueColor}" />
+            <Button x:Name="WhiteButton" Content="White" HorizontalAlignment="Stretch" Command="{Binding TurnOnLedCommand}" CommandParameter="{StaticResource WhiteColor}" />
+            <Button x:Name="OffButton" Content="Off" HorizontalAlignment="Stretch" Command="{Binding TurnOnLedCommand}" />
 
             <TextBlock Text="Button Test:" Margin="0,20,0,0" />
             <Button x:Name="PushButton" Content="Push Btn" HorizontalAlignment="Stretch" Command="{Binding PushButtonCommand}" />
