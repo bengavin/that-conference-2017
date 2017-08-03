@@ -12,8 +12,10 @@ start with the 'Software Geek' path.
 
 [I'm a Hardware Geek](#hardware) -- [I'm a Software Geek](#software)
 
-<a name="hardware" />
 ## Building the Hardware
+
+<a name="hardware"></a>
+
 Take a moment to review the supplies you received.  You should have the following parts:
 
 * 2 - 220Ω Resistors [larger] (red, red, brown, gold)
@@ -74,8 +76,10 @@ NOTE: If you plan to follow the software / programming walkthrough, you can use 
 
 Congratulations!  The hardware side of this project is now finished!  It's time to move on to the software side!  If you don't want to do the programming part, find a lab counselor and they can set you up with a pre-programmed card that can demonstrate your assembled hardware.
 
-<a name="software" />
 ## About the Software
+
+<a name="software"></a>
+
 No IoT solution would be complete without a software component.  Whether that is through firmware burned onto a chip, or software loaded into a devices' storage / memory, software is what links the hardware with the rest of the internet.  For this project, we'll be adapting a pre-built piece of software to match with how we configured our Raspberry Pi and hardware kit.
 
 The software does a few things:
