@@ -31,7 +31,7 @@ You should have received a long breadboard with attached Feather HUZZAH as part 
 
 Find a single (non-RGB) led of your choice, a 220Ω resistor and three wires, then setup your board to look like the following picture:
 
-![HUZZAH LEDs](sketches/Feather_Led.png)
+![HUZZAH LEDs](sketches/Feather_LED.png)
 
 The 'longer' leg of the LED should be connected to the resistor, and the shorter leg should be connected to the ground plane.
 
@@ -172,9 +172,114 @@ Hook up the POT:
 
 ## Test the POT
 
-Now, open your favorite text editor and create a file called 'servo-control.js'.  Insert the following into the file:
+Now, open your favorite text editor and create a file called 'servo-control.js'.  Insert the following into the file (again, [[address]] is the IP address of the Feather):
 
 ```javascript
+var five = require('johnny-five');
+var EtherPortClient = require('etherport-client').EtherPortClient;
+
+var board = new five.Board({
+    port: new EtherPortClient({
+        host: "[[address]]",
+        port: 3030
+    }),
+    timeout: 1e5,
+    repl: false
+});
+
+board.on("ready", function() {
+    console.log('Board is ready!');
+
+  var control = new five.Sensor({
+      pin: "A0",
+      freq: 250
+  });
+
+  control.on("data", function() {
+    console.log('Value: ', this.value, ', Raw: ', this.raw);
+  });
+
+});
 ```
+
+Jumping over to the command prompt / terminal and running your program (<code>node servo-control.js</code>) should result in a continuous stream of readings flowing through.  Watch what happens to the values as you turn the POT.  You should see that the values range somewhere between 0 -> 800 (a perfect conversion would be 0 -> 1024).
+
+### Add the Servo
+
+Finally, let's add the servo to the mix.  We're also going to add an inline switch that can be used to cut power to the servo, since it sometimes wants to continue 'humming' even when the program isn't actively running.  Wire up the switch and servo to look like the following:
+
+![HUZZAH Servo](sketches/Servos_WithSwitch.png)
+
+Now, update the program to add the following lines:
+
+```javascript
+board.on("ready", function() {
+
+// ... existing sensor code
+
+  var servo = new five.Servo({
+    pin: 2,
+    startAt: 90,
+    range: [0, 180],
+    debug: true
+  });
+
+  control.on("change", function() {
+      var controlValue = this.scaleTo(0, 180);
+      servo.to(controlValue);
+  });
+
+});
+```
+These new lines ask the J-Five library to setup a Servo running from pin #2 on the Feather.  Since the servo we're using has a limited angle range of 0-180, we need to scale the input of our sensor (0-800) to that range.  If you run your program, you should now see that the servo follows the position of the POT dial (more or less).
+
+### Other Servo Control options
+
+In addition to using the POT input to control the servo, you can also 'sweep' the servo using the J-Five library, example control code looks like:
+
+```javascript
+  console.log('Servo connected');
+  
+  var lap = 0;
+
+  servo.sweep().on("sweep:full", function() {
+    console.log("lap", ++lap);
+
+    if (lap === 1) {
+      this.sweep({
+        range: [40, 140],
+        step: 10
+      });
+    }
+
+    if (lap === 2) {
+      this.sweep({
+        range: [60, 120],
+        step: 5
+      });
+    }
+
+    if (lap === 3) {
+      this.sweep({
+        range: [80, 100],
+        step: 1
+      });
+    }
+
+    if (lap === 5) {
+      process.exit(0);
+    }
+  });
+
+  this.on("exit", function() {
+      servo.to(90);
+  });
+```
+
+This will cause the servo to 'sweep' back and forth continuously (for 5 'laps').  For more ideas, you can explore the Servo class documentation at johnny-five.io.
+
+# Congratulations!
+
+You've done!  For further exploration, think about how you could combine the servo with one (or more) LEDs, add additional hardware sensors / displays, etc.  When you're done, bring your materials to the check-in desk and explore other areas of the lab!
 
 
