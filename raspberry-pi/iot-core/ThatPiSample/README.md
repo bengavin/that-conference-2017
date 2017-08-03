@@ -155,10 +155,12 @@ Once you've had a chance to get things running, see if you can change something 
 
 For example:
 * What happens if you change the resistor positions?
-* What happens if you change resistor values altogether (find a lab counselor to get a variety of resistors to test)?
+* What happens if you change resistor values altogether? (find a lab counselor to get a variety of resistors to test)
 * What happens if you start listening for all beacons instead of only the 3 you have?
 * How far away do you have to get before your Pi stops 'seeing' the beacon?
 * Does the distance change depending on what is between the beacon and the Pi?
 * Can you compensate in software to stop 'seeing' beacons that aren't close enough to the Pi?
   * Hint: Look in the BeaconService for the '_watcher' and see what properties are there
+* ADVANCED SOFTWARE: Pulse-Width-Modulation (PWM) is a way to 'dim' the LED, and most GPIO pins on the Raspberry Pi support PWM in software.  Could you change the LedService to support 'blending' the colors to produce a full spectrum?
+* ADVANCED HARDWARE: Hardware PWN modules are available at the checkout desk, they work by using the I2C (or SPI) protocols to control the output voltage on their pins.  Can you create a solution that blends the colors using these hardware PWM modules?
   
