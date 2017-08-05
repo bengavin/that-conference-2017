@@ -57,9 +57,9 @@ Now that we can take an input message and split it into 3 color messages, we wan
 
 *Do this for two additional nodes (Green and Blue), mapping to the pins mentioned above (5 and 6).*
 
-```
+<blockquote>
 As mentioned above, we need to invert the incoming values, the reason for this is that PWM values are between 0-100.  If you send a '0' to the pin, it turns the pin on all the time, and sending 100 turns the pin off all the time (with our setup).  Since we want a value of 255 to mean that the color is 'on', we need to make that value = 0, so we calculated it by subtracing (255 - 255 = 0).
-```
+</blockquote>
 
 Now, let's start connecting things together.  Click-Drag from the output of the 'Turn off LED' node to the input of the 'Extract Colors' node.  Then connect the 3 output circles of 'Extract Colors' to the 'Red', 'Green' and 'Blue' input circles (remember, the colors go in order, from top->bottom).  The end result should look something like this:
 
