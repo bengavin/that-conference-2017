@@ -14,8 +14,8 @@ We'll start by setting up the hardware side of things.  Take your components and
 Wires (See Pi Pinout Chart):
 * Yellow - to 3.3V supply pin
 * Green - to GPIO6
-* Red - to GPIO5
-* Blue - to GPIO13
+* Red - to GPIO13
+* Blue - to GPIO5
 
 Resistors:
 * 3kΩ (green, brown, red, gold) - inline with the blue and green wires
@@ -39,7 +39,7 @@ This will provide a sample input into your flow, in this case, it just tells the
 
 ### Splitting the colors
 
-Our RGB LED is controlled via 3 different GPIO pins on the Pi, so we need to split our single input into 3 distinct inputs, one for each RGB component.  There are lots of ways to do this in NodeRED and in this example, we're going to use some simple JavaScript to do the job.
+Our RGB LED is controlled via 3 different GPIO pins on the Pi, so we need to split our single input into 3 distinct outputs, one for each RGB component.  There are lots of ways to do this in NodeRED and in this example, we're going to use some simple JavaScript to do the job.
 
 Drag a 'function' function node onto your flow, and set it up to look like this:
 
@@ -55,7 +55,11 @@ Now that we can take an input message and split it into 3 color messages, we wan
 
 ![GPIO Setup](sketches/NodeRED_GpioSetup.png)
 
-*Do this for two additional nodes (Green and Blue), mapping to the pins mentioned above (6 and 13).*
+*Do this for two additional nodes (Green and Blue), mapping to the pins mentioned above (5 and 6).*
+
+```
+As mentioned above, we need to invert the incoming values, the reason for this is that PWM values are between 0-100.  If you send a '0' to the pin, it turns the pin on all the time, and sending 100 turns the pin off all the time (with our setup).  Since we want a value of 255 to mean that the color is 'on', we need to make that value = 0, so we calculated it by subtracing (255 - 255 = 0).
+```
 
 Now, let's start connecting things together.  Click-Drag from the output of the 'Turn off LED' node to the input of the 'Extract Colors' node.  Then connect the 3 output circles of 'Extract Colors' to the 'Red', 'Green' and 'Blue' input circles (remember, the colors go in order, from top->bottom).  The end result should look something like this:
 
@@ -85,7 +89,17 @@ Now, HTTP input by itself will work, but it would be nice to tell the person mak
 
 ![Setting up the output](sketches/NodeRED_Template.png)
 
-Once we have the template, we can send the response to the user, so drag an 'http' output node onto the flow below the 'Blue' node and name it 'Send Response'.  Then do the final flow 'wiring'.  The output circle on the 'PUT Color' node should flow into the input circle on 'Extract Colors' AND to the input circle on 'Construct Response' (inputs and outputs can be connected to multiple places, this causes the messages to be delivered to each place at the same time).  Then connect the output of 'Construct Response' to the input of 'Send Response'.  Once you're done, your flow should look something like this:
+Once we have the template, we can send the response to the user, so drag an 'http' output node onto the flow below the 'Blue' node and name it 'Send Response'.  
+
+### Final Wiring
+
+Set up these connections:
+* The output circle on the 'PUT Color' node should flow to the input circle on 'Extract Colors'
+* The output circle on the 'PUT Color' node should flow to the input circle on 'Construct Response'
+    * Inputs and outputs can be connected to multiple places, this causes the messages to be delivered to each place at the same time
+* Connect the output of 'Construct Response' to the input of 'Send Response'.
+
+Once you're done, your flow should look something like this:
 
 ![Final Layout](sketches/NodeRED_Final.png)
 
@@ -99,7 +113,7 @@ On your laptop, you should have a program called 'Postman', we'll use this progr
 
 Change the dropdown to say 'PUT' and type the URL for your Pi:
 
-![PUT Request](sketches/Postman_PUT.png)
+![PUT Request](sketches/Postman_Put.png)
 
 To tell the Pi that we're sending JSON, we need to add a Header:
 
