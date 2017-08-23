@@ -1,0 +1,2 @@
+# NodeJS modules shouldn't get into git please
+node_modules/**
